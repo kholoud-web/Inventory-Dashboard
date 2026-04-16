@@ -1,5 +1,5 @@
 import { memo, useState } from 'react';
-import { Bell, Shield, Database, Palette, Globe, Save } from 'lucide-react';
+import { Bell, Database, Globe, Save } from 'lucide-react';
 
 const Settings = memo(() => {
   const [lowStockThreshold, setLowStockThreshold] = useState(10);

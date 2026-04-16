@@ -26,12 +26,12 @@ const InventoryToolbar = ({
   const { t } = useTranslation();
 
   const inputClass =
-    'rounded-xl px-4 py-3 text-sm bg-slate-950/50 border border-slate-800/70 text-slate-100 placeholder-slate-500 outline-none';
+    'rounded-xl px-4 py-3 text-sm bg-slate-950/50 border border-slate-800/70 text-white placeholder-slate-500 outline-none';
 
   return (
     <div className="flex flex-wrap items-center gap-3">
       <div className={`flex flex-1 min-w-56 items-center gap-2 ${inputClass}`} role="search">
-        <Search size={16} className="text-slate-400 flex-shrink-0" />
+        <Search size={16} className="text-white flex-shrink-0" />
         <input
           type="search"
           value={search}
@@ -40,7 +40,7 @@ const InventoryToolbar = ({
             onResetPage();
           }}
           placeholder={t('inventory.search')}
-          className="w-full bg-transparent text-sm text-slate-100 placeholder-slate-500 outline-none text-right"
+          className="w-full bg-transparent text-sm text-white placeholder-white outline-none text-right px-2"
           aria-label={t('common.search')}
         />
       </div>
@@ -55,7 +55,7 @@ const InventoryToolbar = ({
         aria-label={t('inventory.category')}
       >
         {categories.map((c) => (
-          <option key={c} value={c} className="bg-slate-950 text-slate-100">
+          <option key={c} value={c} className="bg-slate-850 text-slate-100">
             {c === 'all' ? t('categories.all') : c}
           </option>
         ))}
@@ -84,7 +84,7 @@ const InventoryToolbar = ({
 
         <button
           className="rounded-xl px-4 py-3 text-sm text-white flex items-center gap-2 transition-all hover:opacity-95 shadow-lg"
-          style={{ background: 'linear-gradient(135deg, #0f766e, #0891b2)' }}
+          style={{ background: 'linear-gradient(135deg, #059669, #10b981)' }}
         >
           <Plus size={15} />
           <span className="hidden sm:inline">{t('inventory.addItem')}</span>

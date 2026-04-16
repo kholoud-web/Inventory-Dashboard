@@ -43,9 +43,9 @@ const InventoryPagination = ({
             style={
               page === p
                 ? {
-                    background: 'linear-gradient(135deg, #0f766e, #0891b2)',
+                    background: 'linear-gradient(135deg, #059669, #10b981)',
                     color: 'white',
-                    borderColor: 'rgba(56,189,248,0.35)',
+                    borderColor: 'linear-gradient(135deg, #059669, #10b981)',
                   }
                 : {
                     color: '#94a3b8',

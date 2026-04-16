@@ -6,8 +6,8 @@ import type { NavPage } from '../Types';
 
 const Dashboard = lazy(() => import('../Pages/Dashboard'));
 const Inventory = lazy(() => import('../Pages/inventory/Inventory'));
-const Reports = lazy(() => import('../Pages/Reports'));
-const Alerts = lazy(() => import('../Pages/Alerts'));
+const Reports = lazy(() => import('../Pages/reports/Reports'));
+const Alerts = lazy(() => import('../Pages/alerts/Alerts'));
 const Suppliers = lazy(() => import('../Pages/Suppliers'));
 const Settings = lazy(() => import('../Pages/Setting'));
 
@@ -82,7 +82,7 @@ export default function DashboardLayout() {
           role="contentinfo"
           className="px-6 py-3 text-center border-t border-green-900/20"
         >
-          <p className="text-xs text-green-400/30">
+          <p className="text-xs text-green-900">
             مستودع برو © {new Date().getFullYear()} — نظام إدارة المخزون
           </p>
         </footer>

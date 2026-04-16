@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Truck, Phone, Mail, MapPin, Star } from 'lucide-react';
+import { Truck, Phone, Mail, MapPin, Star, User } from 'lucide-react';
 
 const suppliers = [
   { id: '1', name: 'شركة ديل', category: 'إلكترونيات', contact: 'سامي العمري', phone: '+966 11 234 5678', email: 'info@dell.sa', city: 'الرياض', rating: 4.8, orders: 24, status: 'active' },
@@ -12,56 +12,102 @@ const suppliers = [
 
 const Suppliers = memo(() => {
   return (
-    <div className="space-y-6 animate-fade-in">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" role="list" aria-label="قائمة الموردين">
-        {suppliers.map(sup => (
-          <div key={sup.id} role="listitem"
-            className="glass-card glass-card-hover rounded-2xl p-5 space-y-4">
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: 'rgba(74,222,128,0.15)' }}>
-                  <Truck size={18} className="text-green-400" aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="text-white font-bold text-sm" style={{ fontFamily: 'Cairo, sans-serif' }}>
-                    {sup.name}
-                  </h3>
-                  <span className="text-xs badge-info px-2 py-0.5 rounded-full">{sup.category}</span>
-                </div>
-              </div>
-              <span className={`text-xs px-2 py-1 rounded-full ${sup.status === 'active' ? 'badge-success' : 'badge-danger'}`}>
-                {sup.status === 'active' ? 'نشط' : 'غير نشط'}
-              </span>
-            </div>
+    <div className="space-y-6 animate-fade-in px-4">
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+        role="list"
+        aria-label="قائمة الموردين"
+      >
+        {suppliers.map((sup) => {
+          const isActive = sup.status === 'active';
 
-            <div className="space-y-2 text-xs text-green-300/70">
-              <div className="flex items-center gap-2">
-                <Phone size={12} aria-hidden="true" className="text-green-400/50" />
-                <span dir="ltr">{sup.phone}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail size={12} aria-hidden="true" className="text-green-400/50" />
-                <span>{sup.email}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin size={12} aria-hidden="true" className="text-green-400/50" />
-                <span>{sup.city}</span>
-              </div>
-            </div>
+          return (
+            <div
+              key={sup.id}
+              role="listitem"
+              className="rounded-2xl p-5 space-y-4 bg-slate-900/70 backdrop-blur-xl border border-slate-800/80 hover:bg-slate-900/90 hover:-translate-y-1 transition-all duration-300 shadow-sm"
+            >
+              {/* Header */}
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div
+                    className="w-11 h-11 rounded-xl flex items-center justify-center border shrink-0"
+                    style={{
+                      background: 'rgba(56,189,248,0.10)',
+                      borderColor: 'rgba(56,189,248,0.18)',
+                    }}
+                  >
+                    <Truck size={18} className="text-sky-400" aria-hidden="true" />
+                  </div>
 
-            <div className="flex items-center justify-between pt-2 border-t border-green-900/20 text-xs">
-              <div className="flex items-center gap-1">
-                <Star size={12} className="text-yellow-400" fill="#fbbf24" aria-hidden="true" />
-                <span className="text-green-200 font-medium">{sup.rating}</span>
+                  <div className="min-w-0">
+                    <h3
+                      className="text-slate-100 font-bold text-sm truncate"
+                      style={{ fontFamily: 'Cairo, sans-serif' }}
+                    >
+                      {sup.name}
+                    </h3>
+
+                    <div className="flex flex-wrap items-center gap-2 mt-1">
+                      <span className="text-[11px] px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20">
+                        {sup.category}
+                      </span>
+
+                      <span
+                        className={`text-[11px] px-2 py-0.5 rounded-full border ${
+                          isActive
+                            ? 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20'
+                            : 'bg-rose-500/10 text-rose-300 border-rose-500/20'
+                        }`}
+                      >
+                        {isActive ? 'نشط' : 'غير نشط'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <span className="text-green-400/50">{sup.orders} طلب</span>
-              <button className="text-green-400 hover:text-green-300 transition-colors font-medium">
-                عرض التفاصيل
-              </button>
+
+              {/* Contact person */}
+              <div className="flex items-center gap-2 text-xs text-slate-300 bg-slate-950/35 border border-slate-800/60 rounded-xl px-3 py-2">
+                <User size={13} className="text-slate-400" aria-hidden="true" />
+                <span className="text-slate-400">جهة التواصل:</span>
+                <span className="text-slate-200 font-medium">{sup.contact}</span>
+              </div>
+
+              {/* Info */}
+              <div className="space-y-2.5 text-xs">
+                <div className="flex items-center gap-2 text-slate-400">
+                  <Phone size={13} aria-hidden="true" className="text-slate-500" />
+                  <span dir="ltr" className="text-slate-300">{sup.phone}</span>
+                </div>
+
+                <div className="flex items-center gap-2 text-slate-400 min-w-0">
+                  <Mail size={13} aria-hidden="true" className="text-slate-500 shrink-0" />
+                  <span className="text-slate-300 truncate">{sup.email}</span>
+                </div>
+
+                <div className="flex items-center gap-2 text-slate-400">
+                  <MapPin size={13} aria-hidden="true" className="text-slate-500" />
+                  <span className="text-slate-300">{sup.city}</span>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="flex items-center justify-between pt-3 border-t border-slate-800/70 text-xs gap-3">
+                <div className="flex items-center gap-1.5">
+                  <Star size={13} className="text-amber-400" fill="#fbbf24" aria-hidden="true" />
+                  <span className="text-white font-semibold">{sup.rating}</span>
+                </div>
+
+                <span className="text-white">{sup.orders} طلب</span>
+
+                <button className="text-sky-400 hover:text-sky-300 transition-colors font-medium">
+                  عرض التفاصيل
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
