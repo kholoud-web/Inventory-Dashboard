@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import type { InventoryItem } from '../../Types';
-import type { SortDir, SortKey } from '../Inventory';
+import type { SortDir, SortKey } from './Inventory';
 import InventoryTableHead from './InventorybTableHead';
 import InventoryRow from './InventoryRow';
 

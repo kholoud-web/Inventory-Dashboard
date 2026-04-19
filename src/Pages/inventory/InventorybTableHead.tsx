@@ -1,6 +1,6 @@
 import { ChevronUp, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import type { SortDir, SortKey } from '../Inventory';
+import type { SortDir, SortKey } from './Inventory';
 
 interface InventoryTableHeadProps {
   sortKey: SortKey;

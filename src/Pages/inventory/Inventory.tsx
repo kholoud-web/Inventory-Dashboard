@@ -1,5 +1,5 @@
 import { memo, useState, useMemo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { inventoryData } from '../../Data';
 import type { InventoryItem, ItemStatus } from '../../Types';
 
@@ -7,12 +7,11 @@ import InventoryToolbar from './InventoryToolbar';
 import InventorySummary from './InventorySummary';
 import InventoryTable from './InventoryTable';
 import InventoryPagination from './InventoryPagination';
-
 export type SortKey = keyof Pick<InventoryItem, 'name' | 'quantity' | 'price' | 'category'>;
 export type SortDir = 'asc' | 'desc';
 
 const Inventory = memo(() => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');

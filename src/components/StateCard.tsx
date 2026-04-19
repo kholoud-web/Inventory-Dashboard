@@ -11,7 +11,7 @@ interface StatCardProps {
 }
 
 const colorMap = {
-  green: {
+  emerald: {
     border: 'rgba(16, 185, 129, 0.28)',
     text: '#34d399',
     iconBg: 'rgba(16, 185, 129, 0.12)',
@@ -39,7 +39,7 @@ const colorMap = {
 
 const StatCard = memo(
   ({ title, value, subtitle, icon: Icon, color, trend }: StatCardProps) => {
-    const c = colorMap[color] || colorMap.green;
+    const c = colorMap[color] || colorMap.emerald;
 
     return (
       <div
